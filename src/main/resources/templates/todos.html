@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Insert title here</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+<!-- jQuery library -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+	<table class="table table-hover table-striped 	">
+		<tr>
+			<th>id</th>
+			<th>task</th>
+			<th>priority</th>
+			<th>created</th>
+			<th>modified</th>
+			<th>edit</th>
+			<th>delete</th>
+
+
+		</tr>
+		<tr th:each="instance : ${todos}">
+			<td th:text="${instance.id}">keyvalue</td>
+			<td th:text="${instance.taskName}">keyvalue</td>
+			<td th:text="${instance.priority}">keyvalue</td>
+			<td th:text="${instance.creationTime}">keyvalue</td>
+			<td th:text="${instance.modificationtime}">keyvalue</td>
+			<td><a th:href="@{|/ToDoEntity/update/${instance.id}|}">edit</a></td>
+			<td><a th:href="@{|/ToDoEntity/delete/${instance.id}|}">delete</a></td>
+		</tr>
+	</table>
+
+</body>
+</html>
